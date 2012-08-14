@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TravelApp</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+  
+  
+  <!--GOOGLE CUSTOM FONT LINK-->
+
+
+<%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Gruppo', 'style','prettyPhoto','application' %>
+
+<!--SCRIPTS-->
+
+<%= javascript_include_tag 'jquery.min.js','jquery-ui-1.8.13.custom.min.js','prettyphoto.js','activity.js','http://maps.google.com/maps/api/js?sensor=false', 'gmap3.min.js','jquery.backstretch.min.js','jquery.animate-colors-min.js','custom.js',  'https://apis.google.com/js/plusone.js' %>
+
+
+</head>
+<body>
+	
+
+
+<div id="header">
+	
+	<!--LOGO-->
+	<!--<%= link_to "The Navigator" ,'/' %><%= image_tag('images/logo.png',:alt=>"logo") %> -->
+	<a id="logo" href="/"><img src="images/logo.png" alt="The Navigator" /></a> 
+	<!--DESCRIPTION-->
+	<!--NAVIGATION MENU-->
+	<div id="navigation">
+		<ul id="dropmenu" class="menu">
+			<!--CURRENT MENU ITEM (class name = current-menu-item)-->
+			
+			<% if current_user %>
+     			
+     			<li> <%= link_to current_user.email, "/show_profile/#{current_user.id}"%> </li>
+     		<% end %>
+			<li class="current-menu-item"><%= link_to "Home" , '/' %>
+				
+
+			<ul class="sub-menu">
+				<li><a href="#">Africa</a></li>
+				<li><a href="#">Asia</a></li>
+				<li><a href="#">Australia</a></li>
+				<li><a href="#">Europe</a></li>
+				<li><a href="#">North America</a></li>
+				<li><a href="#">South America</a></li>
+				<li><a href="#">View All</a></li>
+			</ul>
+			</li>
+			
+			<li><%= link_to "About", homes_about_path %></li>
+			<li><%= link_to "Contact", homes_contact_path %></li>
+			
+ 
+			   <% if current_user %>
+			   		<!--><li><%= link_to "Edit Profile", :action => "new_profile", :controller => "users" if current_user.present? %></li>-->
+     				<li><%= link_to "Log out", log_out_path %></li> 
+   				<% else %>  
+     				<li><%= link_to "Sign up", sign_up_path %></li>
+     				<li><%= link_to "Log in", log_in_path %> </li> 
+   				<% end %>  
+			
+		</ul>
+	</div>
+</div><!--end header-->
+	
+  <% flash.each do |name, msg| %>  
+     <%= content_tag :div, msg, :id => "flash#{name}" %>  
+   <% end %> 
+
+<%= yield %>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<div id="footer">
+
+	<!--WIDGET PANEL OPEN/CLOSE-->
+	<a href="#" id="widgetsOpen" title="More" class="widgetsToggle">+</a>
+	<a href="#" id="widgetsClose" title="Close" class="widgetsToggle">&times;</a>	
+	
+	<!--SEARCH (NOT FUNCTIONAL)-->	
+	<div id="footerSearch">
+		<form method="get" action="/">
+			<input type="image" src="images/mag_glass.png" id="searchsubmit" alt="GO!" />
+			<input type="text" value="" onfocus="this.value=''; this.onfocus=null;"  name="s" id="s" />
+		</form>
+	</div>
+	
+	<!--SOCIAL BUTTONS-->
+	<div id="socialStuff">
+		<a class="socialicon" id="rssIcon" href="#"  title="Subscribe via RSS" rel="nofollow"></a>
+		<a class="socialicon" id="facebookIcon" href="#"  title="Facebook" rel="nofollow"></a>
+		<a class="socialicon" id="twitterIcon" href="#" title="Follow on Twitter" rel="nofollow"></a>
+		<!--
+		<a class="socialicon" id="vimeoIcon" href="#" title="Vimeo" rel="nofollow"></a>
+		<a class="socialicon" id="skypeIcon" href="#" title="Skype" rel="nofollow"></a>
+		<a class="socialicon" id="myspaceIcon" href="#" title="MySpace" rel="nofollow"></a>
+		<a class="socialicon" id="flickrIcon" href="#" title="Flickr" rel="nofollow"></a>
+		<a class="socialicon" id="linkedinIcon" href="#" title="LinkedIn" rel="nofollow"></a>
+		<a class="socialicon" id="youtubeIcon" href="#" title="YouTube" rel="nofollow"></a>
+		-->
+	</div>
+		
+	<!--COPYRIGHT NOTICE - IMPORTANT! DO NOT REMOVE GOOGLE NOTICE -->
+	<div id="copyright">
+	&copy; Wirates.com
+	</div>	
+	
+	<!--THIS SHOULD BE THE TITLE OF THE PAGE-->
+	<div class="pageContent">
+		<h2>Page Title Here</h2>
+	</div>
+</div><!--end footer-->
+
+
+
+</body>
+</html>

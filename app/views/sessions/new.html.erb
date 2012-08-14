@@ -1,0 +1,99 @@
+<div id="loading"></div>
+
+<div id="contentContainer">
+<div id="content">
+
+<div id="main">
+	<div id="handle"></div>
+	<div id="closeBox"></div>
+	
+	<h2 class="entrytitle">Sign In</h2>
+	
+	<div id="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <span class="current">Sign In</span></div>	
+	<div class="entry">
+	
+	<!--Sign In FORM-->
+
+<%= form_tag sessions_path do %>
+	<p>
+		<%= label_tag :email %><br />
+		<%= text_field_tag :email, params[:email] %>
+	</p>
+	
+	<p>
+		<%= label_tag :password %><br />
+		<%= password_field_tag :password %>
+	</p>
+	
+	<p class="button"> <%= submit_tag %></p>
+	
+	
+	<p> <label> Dont have an acount ? </label>
+		<%= link_to "Sign Up", sign_up_path %> </p>
+	
+<% end %>
+
+<!--end Sign In form-->
+    								
+	</div><!--end entry-->
+		
+</div><!--end main-->
+
+<script type="text/javascript">
+//FULL SCREEN IMAGE
+jQuery.noConflict(); jQuery(document).ready(function(){jQuery.backstretch("images/thumbs/blog.jpg", {speed: 150});});
+</script>
+
+<div id="sidebar">
+<ul>
+<!--WIDGET 1-->
+<li class="widget">
+	<h2 class="widgettitle">Sponsors</h2>			
+	<a href="http://themeforest.net/user/themolitor/portfolio?ref=themolitor">
+		<img src="http://www.lakewaparks.com/wp/wp-content/uploads/2011/07/tf_260x120.gif" alt="ThemeForest" />
+	</a>
+</li><!--end widget-->
+
+<!--WIDGET 2-->
+<li class="widget">
+	<h2 class="widgettitle">Text Widget</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis aliquet commodo. Sed consequat lorem a quam fermentum auctor. Donec quis nisi mi. In vel justo sem, quis iaculis tellus. Sed molestie imperdiet sapien, sed adipiscing tellus imperdiet at. Donec id orci sed elit eleifend luctus.</p>
+</li><!--end widget-->
+
+<!--WIDGET 3-->
+<li class="widget">
+	<h2 class="widgettitle">Tags</h2>
+	<div class="tagcloud">
+		<a href='#'>Africa</a>
+		<a href='#'>All</a>
+		<a href='#'>Argentina</a>
+		<a href='#'>Arizona</a>
+		<a href='#'>Asia</a>
+		<a href='#'>Australia</a>
+		<a href='#'>Brazil</a>
+		<a href='#'>China</a>
+		<a href='#'>Egypt</a>
+		<a href='#'>England</a>
+		<a href='#'>Europe</a>
+		<a href='#'>France</a>
+		<a href='#'>India</a>
+		<a href='#'>Italy</a>
+		<a href='#'>Mexico</a>
+		<a href='#'>New York</a>
+		<a href='#'>North Africa</a>
+		<a href='#'>North America</a>
+		<a href='#'>Paris</a>
+		<a href='#'>Rome</a>
+		<a href='#'>South America</a>
+		<a href='#'>UK</a>
+		<a href='#'>US</a>
+	</div>
+</li><!--end widget-->
+</ul>
+<div class="clear"></div>
+</div><!--end sidebar-->
+
+<div class="clear"></div>
+</div><!--end content-->
+</div><!--end contentContainer-->
+

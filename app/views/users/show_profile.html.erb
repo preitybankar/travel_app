@@ -1,0 +1,113 @@
+
+<div id="loading"></div>
+
+<div id="contentContainer">
+<div id="content">
+
+<div id="main">
+	<div id="handle"></div>
+	<div id="closeBox"></div>
+	
+	<h2 class="entrytitle">Profile</h2>
+	
+	<div id="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <span class="current">Profile</span></div>	
+	<div class="entry">
+	
+	<!--Profile Information-->
+
+
+<% if @user.present? %>
+<!--><p style="font-size:14px; font-weight:bold;"> -->
+ <p> First Name : <%= @user.fname %> </p>
+<p>  Last Name : <%= @user.lname %></p>
+<p>  Gender : <%= @user.gender %></p>
+<p>  Date of Birth : <%= @user.dob %></p>
+<p> Country : <%= @user.country %></p>
+<p>  State : <%= @user.state %></p>
+<p>  City : <%= @user.city %></p>
+
+<p>  Address : <%= @user.address %></p>
+<p>  Pin : <%= @user.pin %></p>
+<p>  Phone : <%= @user.phone %></p>
+<!-- <li> <%= image_tag @user.image_url(:thumb).to_s%> </li> 
+<li><%= image_tag @user.image_url(:thumb) if @user.image? %></li>-->
+<% if current_user.profile.image? %>
+<p><%= image_tag @user.image_url(:thumb) %></p>
+<% else %>
+<p><%= link_to image_tag ('default_user_profile_small.jpg') %></p>
+<p><%= link_to "Add Image" %></p>
+<% end %>
+
+<!--  <li><%= image_tag current_user.profile.image_url(:thumb).to_s %></li> -->
+
+<p><%= link_to "Edit Profile" %></p>
+</p>
+<% else %>
+ <p><%= link_to "Create Profile", :action => "new_profile", :controller => "users" if current_user.present? %></p>
+<% end %>
+
+
+<!--end contact form-->
+    								
+	</div><!--end entry-->
+		
+</div><!--end main-->
+
+<script type="text/javascript">
+//FULL SCREEN IMAGE
+jQuery.noConflict(); jQuery(document).ready(function(){jQuery.backstretch("images/thumbs/blog.jpg", {speed: 150});});
+</script>
+
+<div id="sidebar">
+<ul>
+<!--WIDGET 1-->
+<li class="widget">
+	<h2 class="widgettitle">Sponsors</h2>			
+	<a href="http://themeforest.net/user/themolitor/portfolio?ref=themolitor">
+		<img src="http://www.lakewaparks.com/wp/wp-content/uploads/2011/07/tf_260x120.gif" alt="ThemeForest" />
+	</a>
+</li><!--end widget-->
+
+<!--WIDGET 2-->
+<li class="widget">
+	<h2 class="widgettitle">Text Widget</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis aliquet commodo. Sed consequat lorem a quam fermentum auctor. Donec quis nisi mi. In vel justo sem, quis iaculis tellus. Sed molestie imperdiet sapien, sed adipiscing tellus imperdiet at. Donec id orci sed elit eleifend luctus.</p>
+</li><!--end widget-->
+
+<!--WIDGET 3-->
+<li class="widget">
+	<h2 class="widgettitle">Tags</h2>
+	<div class="tagcloud">
+		<a href='#'>Africa</a>
+		<a href='#'>All</a>
+		<a href='#'>Argentina</a>
+		<a href='#'>Arizona</a>
+		<a href='#'>Asia</a>
+		<a href='#'>Australia</a>
+		<a href='#'>Brazil</a>
+		<a href='#'>China</a>
+		<a href='#'>Egypt</a>
+		<a href='#'>England</a>
+		<a href='#'>Europe</a>
+		<a href='#'>France</a>
+		<a href='#'>India</a>
+		<a href='#'>Italy</a>
+		<a href='#'>Mexico</a>
+		<a href='#'>New York</a>
+		<a href='#'>North Africa</a>
+		<a href='#'>North America</a>
+		<a href='#'>Paris</a>
+		<a href='#'>Rome</a>
+		<a href='#'>South America</a>
+		<a href='#'>UK</a>
+		<a href='#'>US</a>
+	</div>
+</li><!--end widget-->
+</ul>
+<div class="clear"></div>
+</div><!--end sidebar-->
+
+<div class="clear"></div>
+</div><!--end content-->
+</div><!--end contentContainer-->
+
